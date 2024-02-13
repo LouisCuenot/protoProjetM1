@@ -1,0 +1,29 @@
+.ui{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    .horizontalContainer{
+        width: 30vw;
+        height: 30px;
+        position: fixed;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .horizontalCircle{
+            width: 30px;
+            height: 30px;
+            background-color: #000;
+            border-radius: 50%;
+            transition: .4s ease;
+            &.active{
+                border: 3px solid #FFD500;
+            }
+        }
+    }
+}
