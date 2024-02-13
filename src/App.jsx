@@ -12,48 +12,26 @@ import gsap from 'gsap'
 
 function App() {
 
-  const currentYear = useRef()
+  const [currentYear, setCurrentYear] = useState(0)
+
 
   useEffect(()=>{
 
-    currentYear.current = 0
 
     const handleWheel = (e) => {
       if(e.deltaY > 0){
-        if(currentYear.current === 0){
-          gsap.to(currentYear,{
-            current:1,
-            duration:3,
-            onUpdate:()=>console.log(currentYear.current)
-          })
-        }else if(currentYear.current === 1){
-          gsap.to(currentYear,{
-            current:2,
-            duration:3,
-            onUpdate:()=>console.log(currentYear.current)
-          })
+        if(currentYear === 0){
+          setCurrentYear(1)
+        }else if(currentYear === 1){
+          setCurrentYear(2)
         }
       }else if(e.deltaY < 0){
-        if(currentYear.current === 1){
-          gsap.to(currentYear,{
-            current:0,
-            duration:3,
-            onUpdate:()=>console.log(currentYear.current)
-          })
-        }else if(currentYear.current === 2){
-          gsap.to(currentYear,{
-            current:1,
-            duration:3,
-            onUpdate:()=>console.log(currentYear.current)
-          })
+        if(currentYear === 1){
+          setCurrentYear(0)
+        }else if(currentYear === 2){
+          setCurrentYear(1)
         }
       }
-
-      if(currentYear.current === 0 || currentYear.current === 2){
-        
-      }
-      
-      
     }
 
     window.addEventListener('wheel',handleWheel)
@@ -61,7 +39,7 @@ function App() {
 
   },[currentYear])
 
-  useEffect(()=>console.log(currentYear.current, 'BBBBBBB'),[currentYear])
+
 
 
 
@@ -70,8 +48,8 @@ function App() {
 
   return (
     <div className="App">
-        <R3FCanvas/>
-        <UI currentyear={currentYear.current}/>
+        <R3FCanvas currentYear={currentYear} />
+        <UI currentyear={currentYear}/>
     </div>
   )
 }

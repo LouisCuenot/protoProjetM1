@@ -5,14 +5,13 @@ const UI = ({
     currentyear
 }) => {
 
-    useEffect(()=>console.log(currentyear, 'AAAAAAAAAA'),[])
 
   return (
     <div className='ui'>
         <div className="horizontalContainer">
-            <div className={`horizontalCircle ${currentyear < 0.1 ? 'active' : 'a'}`}/>
-            <div className={`horizontalCircle ${currentyear === 1 ? 'active' : 'a'}`}/>
-            <div className={`horizontalCircle ${currentyear === 2 ? 'active' : 'a'}`}/>
+            <div className={`horizontalCircle ${currentyear === 0 ? 'active' : ''}`}/>
+            <div className={`horizontalCircle ${currentyear === 1 ? 'active' : ''}`}/>
+            <div className={`horizontalCircle ${currentyear === 2 ? 'active' : ''}`}/>
         </div>
     </div>
   )

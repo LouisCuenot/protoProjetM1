@@ -5,13 +5,13 @@ import Controls from '../Components/Controls/Controls'
 import Lights from '../Components/Lights/Lights'
 import Camera from '../Components/Camera/Camera'
 
-const R3FCanvas = () => {
+const R3FCanvas = ({currentYear}) => {
   return (
     <Canvas>
-      <Scene/>
+      <Scene currentYear={currentYear} />
       <Controls/>
       <Lights/>
-      <Camera/>
+      <Camera currentYear={currentYear} />
     </Canvas>
   )
 }
