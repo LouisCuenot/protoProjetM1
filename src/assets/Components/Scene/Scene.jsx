@@ -41,7 +41,7 @@ const Tente = ({value, scale, aaa, currentYear}) => {
   )
 }
 
-const Scene = ({currentYear}) => {
+const Scene = ({currentYear, isAnimating}) => {
 
   const aa = useTexture('/bb.jpg')
 
@@ -65,7 +65,8 @@ const Scene = ({currentYear}) => {
       onUpdate:()=>{
         ///console.log(sossur.current)
         setAaa(sossur.current)
-      }
+      },
+      onComplete:()=>isAnimating.current = false
     })
     if(currentYear === 0){
       console.log(sol.current)
@@ -91,8 +92,6 @@ const Scene = ({currentYear}) => {
       })
     }
   },[currentYear])
-
-  useEffect(()=>console.log(aaa),[aaa])
 
   return (
     <>

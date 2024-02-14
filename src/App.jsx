@@ -13,23 +13,27 @@ import gsap from 'gsap'
 function App() {
 
   const [currentYear, setCurrentYear] = useState(0)
+  const isAnimating = useRef(false)
 
 
   useEffect(()=>{
 
 
     const handleWheel = (e) => {
-      if(e.deltaY > 0){
-        if(currentYear === 0){
-          setCurrentYear(1)
-        }else if(currentYear === 1){
-          setCurrentYear(2)
-        }
-      }else if(e.deltaY < 0){
-        if(currentYear === 1){
-          setCurrentYear(0)
-        }else if(currentYear === 2){
-          setCurrentYear(1)
+      if(!isAnimating.current){
+        isAnimating.current = true
+        if(e.deltaY > 0){
+          if(currentYear === 0){
+            setCurrentYear(1)
+          }else if(currentYear === 1){
+            setCurrentYear(2)
+          }
+        }else if(e.deltaY < 0){
+          if(currentYear === 1){
+            setCurrentYear(0)
+          }else if(currentYear === 2){
+            setCurrentYear(1)
+          }
         }
       }
     }
@@ -48,7 +52,7 @@ function App() {
 
   return (
     <div className="App">
-        <R3FCanvas currentYear={currentYear} />
+        <R3FCanvas currentYear={currentYear} isAnimating={isAnimating} />
         <UI currentyear={currentYear}/>
     </div>
   )

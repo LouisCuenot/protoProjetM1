@@ -34,10 +34,11 @@ const Camera = ({currentYear}) => {
     useEffect(()=>{
       gsap.to(sossur,{
         current:currentYear * Math.PI * 2,
-        duration:3,
+        duration:5,
         onUpdate:()=>{
-          cam.current.position.set(Math.cos(sossur.current)*5,2,Math.sin(sossur.current)*5)
-        }
+          cam.current.position.set(Math.cos(sossur.current)*4,1.4,Math.sin(sossur.current)*3)
+        },
+        onComplete:()=>console.log('yolo')
       })
     },[currentYear])
 
@@ -47,7 +48,7 @@ const Camera = ({currentYear}) => {
 
 
   return (
-    <PerspectiveCamera ref={cam} makeDefault position={[Math.cos(currentYear*Math.PI*2)*5,2,Math.sin(currentYear*Math.PI*2)*5]} args={[60, width/height,1,1000]}/>
+    <PerspectiveCamera ref={cam} makeDefault position={[Math.cos(currentYear*Math.PI*2)*4,1.4,Math.sin(currentYear*Math.PI*2)*3]} args={[60, width/height,1,1000]}/>
   )
 }
 
