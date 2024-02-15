@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import { Html, useScroll, useTexture } from '@react-three/drei'
 import * as THREE from 'three'
 import './Scene.scss'
-import Im from './Im.png'
+import Im from './im.png'
 
 const Tente = ({value, scale, aaa, currentYear}) => {
 
